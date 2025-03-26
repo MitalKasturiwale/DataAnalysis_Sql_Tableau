@@ -1,83 +1,231 @@
 # SQL/Tableau Project
 
-Welcome to my collection of SQL-Tableau projects, showcasing my skills in data analysis, database management, and data visualization. These projects, developed for school, work, or personal exploration, cover a range of topics like deriving actionable insights from Consumer Spending Patterns dataset , employing SQL for data exploration and Tableau for creating interactive visualizations.
+Welcome to my collection of SQL-Tableau projects, showcasing my skills in data analysis, database management, and data visualization. These projects aim deriving actionable insights from Consumer Spending Patterns dataset , employing SQL for data exploration and Tableau for creating interactive visualizations.
 
 Feel free to navigate through the project listed below,  providing a unique perspective on data-driven decision-making.
 
-
-
 <h1 align="center">Consumer Spending Patterns - Data Analysis using Tableau & SQL </h1>
 
-**I am sharing insights from Market Trend Analysis, exploring Consumer Spending Patterns - A Data Analysis Project performed on Tableau & SQL in my journey into Data Analytics.** 
+## Introduction
+This project aims to analyze consumer spending habits across various categories and items for the years 2023 and 2024. By examining trends, identifying high-value customers and items, and proposing actionable strategies, businesses can optimize marketing efforts and drive revenue growth.
 
+---
+## Table of Contents
+1. [Introduction](#introduction)
+2. [Project Scope and Dataset Overview](#project-scope-and-dataset-overview)
+3. [Project Planning](#project-planning)
+4. [Spending Analysis Using MySQL](#spending-analysis-using-mysql)
+5. [Tableau Dashboards](#tableau-dashboards)
+6. [Insights and Recommendations](#insights-and-recommendations)
+7. [Fitness and Medical Insights and Strategic Applications](#fitness-and-medical-insights-and-strategic-applications)
+8. [Summary and Future Scope](#summary-and-future-scope)
+9. [Key Learnings](#key-learnings)
+10. [Contact Information](#contact-information)
+
+---
+
+## Project Scope and Dataset Overview
+- ### Data Source:
+- [Visit Kaggle Spending Habits Dataset](https://www.kaggle.com/datasets/ahmedmohamed2003/spending-habits)
+
+- ### Dataset Highlights:
+  - 13 categories and 48 items
+  - 10,000 transactions for 200 unique customers
+  - Analysis filtered for years 2023 and 2024
 
 ### About Project 👨‍💻
 
 - Analyzing consumer spending data across various categories to uncover trends and patterns.
-- By analyzing this data, businesses can identify emerging trends, keep up with customer needs, and make smart 
-  choices to grow and stay competitive.
+- By analyzing this data, businesses can identify emerging trends, keep up with customer needs, and make smart choices to grow and stay competitive.
 - Used Microsoft Excel and MySQL for data extraction, transformation, and loading.
 - Created an interactive Tableau dashboard showcasing spending patterns and valuable insights.
 - Provided recommendations for strategic applications based on trends.
 
 
-## Technologies used ⚙️
-* Tableau
-* SQL/MySQL
+### Technologies used ⚙️
+* Tableau for visualization
+* SQL/MySQL for data analysis
 * Advanced Excel
 
 
-## Project - Consumer Spending Patterns - Sales Insights  
-
 ### Problem Statements
-Company executives needs to know spending pattern and category among the users in USA with different age groups.
-
 - Q1. Which spending category contributes the most to total expenditures, and why? 
 
 - Q2. Are there any high-value items that drive a significant portion of revenue despite low purchase frequency?
 
-- Q3. Identify the **Top 10 customers** based on total spending and their preferences.
+- Q3. Which is low-engagement category ? What strategies can be recommended to increase spending ?​
 
-- Q4. Correlation between spending on fitness activities and healthcare costs.
+- Q4. Who are the top 10 customers based on total spending, and what are their preferred categories?​
   
-- Q5. Recommendations for low-engagement categories.  Which is low-engagement category ? What strategies can be        recommended to increase spending?
+- Q5. Is there a correlation between spending on fitness and healthcare costs? ​
+  
 
-
-## Project Planning 🚀
+## Project Planning 
   
 #### 1. Purpose: What? Why? What do we want to achieve?
 Unlock deeper insights into consumer spending patterns, automate reporting, and enhance strategic decision-making.
 
 #### 2. Stake Holders: Who will be involved?
-- Business managers
-- marketing teams
-- data analysts
-- product developers
+- Business Managers
+- Marketing Teams
+- Data Analysts
+- Product Developers
 
 #### 3. End Result: What do we want to achieve?
-Interactive dashboards reduce manual effort, enable data-driven decisions, and deliver measurable cost savings.
+- Interactive dashboards reduce manual effort, enable data-driven decisions, and deliver measurable cost savings.
 
 #### 4. Success Criteria: What will be our success criteria?
 - Dashboards uncovering sales insights with latest data available.
 - Sales team able to take better decision & prove 10% cost savings of total spend.
 - Sales analysts stop data gathering manually in order to save 20% of their business time & reinvest it in value added activity.
 
-### Data Analysis - Approach
-<p  align="center"><a href="https://github.com/mrankitgupta"><img width="80%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/flow.jpg" /></a></p>
+### Setup Process 🔍
+  
+Step 1: Download file: <code>[spending_patterns_detailed.sql]()</code> or <code>[spending_patterns_detailed.xlsx]()</code>
 
-## Data Analysis Process 🔍
+Step 2: Import it in MySql do ETL(Extract, Transform, Load) if required
 
-### **Setup**:
-1. Import dataset into MySQL for ETL.  
-2. Download and install [Tableau Public](https://www.tableau.com/products/public/download) or Tableau Desktop for analysis.  
-3. Perform data analysis, filtering transactions by years 2023 and 2024.  
-4. Visualize insights with Tableau dashboards.  
+Step 3: Download [Tableau Public](https://www.tableau.com/products/public/download) (Free) or [Tableau Desktop](https://www.tableau.com/products/desktop/download) (14 days trial) to perform Data Analysis
+  
+Step 4: Connect Tableau with MySql database or Excel database
+  
+Step 5: Save the file as (.twb or .twbx)
+
+## Spending Analysis Using MySQL
 
 ---
 
-## Tableau Dashboards 📊
+### 1. Total Expenditure by Each Spending Category
+```sql
+SELECT category, SUM(total_spent) AS total_expenditure
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY category
+ORDER BY total_expenditure DESC;
+```
+**Purpose:** Identify the spending categories contributing the most during the selected years.
 
-- **Category Analysis**: Spending distribution across categories like Shopping, Fitness, Housing, etc.
+---
+
+### 2. High-Value Items with Low Purchase Frequency
+```sql
+SELECT item, COUNT(*) AS purchase_frequency, SUM(total_spent) AS revenue
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY item
+ORDER BY revenue DESC, purchase_frequency ASC
+LIMIT 10;
+```
+**Purpose:** Highlight items driving significant revenue despite fewer transactions in 2023 and 2024.
+
+---
+
+### 3. Top 10 Customers Based on Spending
+```sql
+SELECT customer_id, SUM(total_spent) AS total_spending
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY customer_id
+ORDER BY total_spending DESC
+LIMIT 10;
+```
+**Purpose:** Identify the top 10 customers by total spending during these years, along with their preferred spending categories.
+
+---
+
+### 4. Correlation Between Fitness and Medical Expenses
+```sql
+SELECT customer_id,
+       SUM(CASE WHEN category = 'Fitness' THEN total_spent ELSE 0 END) AS fitness_spending,
+       SUM(CASE WHEN category IN ('Medical/Dental') THEN total_spent ELSE 0 END) AS medical_spending
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY customer_id
+ORDER BY fitness_spending DESC;
+```
+**Purpose:** Analyze spending on fitness and healthcare costs for individual customers during these years.
+
+---
+
+### 5. Identify Low-Engagement Categories
+```sql
+SELECT category, SUM(quantity) AS quantity_sold, SUM(total_spent) AS total_revenue
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY category
+ORDER BY quantity_sold ASC, total_revenue ASC
+LIMIT 5;
+```
+**Purpose:** Identify the least engaged categories based on quantity count and revenue during 2023 and 2024.
+
+---
+
+### 6. Frequently Purchased Items
+```sql
+SELECT item, SUM(quantity) AS quantity_sold, SUM(total_spent) AS total_revenue
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY item
+ORDER BY quantity_sold DESC
+LIMIT 10;
+```
+**Purpose:** List the most frequently purchased items during these years.
+
+---
+
+### 7. Customer Segmentation
+**High Spenders:**
+```sql
+SELECT customer_id, SUM(total_spent) AS total_spending
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY customer_id
+ORDER BY total_spending DESC
+LIMIT 50;
+```
+**Insights:** These customers contribute a significant portion of revenue. Focus marketing efforts with exclusive offers, tiered loyalty programs, and personalized services.
+
+**Habitual Buyers:**
+```sql
+SELECT customer_id, COUNT(*) AS transaction_count
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY customer_id
+ORDER BY transaction_count DESC
+LIMIT 50;
+```
+**Insights:** These customers are highly engaged and may be more loyal. Retain them with consistent rewards, discounts, and targeted promotions.
+
+---
+
+### 8. Spending by Month
+```sql
+SELECT MONTH(transaction_date) AS month, YEAR(transaction_date), SUM(total_spent) AS total_revenue
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY MONTH(transaction_date), YEAR(transaction_date)
+ORDER BY YEAR(transaction_date), MONTH(transaction_date);
+```
+**Purpose:** Analyze spending trends across months in the selected years.
+
+**Comparing side-by-side:**
+```sql
+SELECT 
+    MONTH(transaction_date) AS Month,
+    SUM(CASE WHEN YEAR(transaction_date) = 2023 THEN total_spent ELSE 0 END) AS total_revenue_2023,
+    SUM(CASE WHEN YEAR(transaction_date) = 2024 THEN total_spent ELSE 0 END) AS total_revenue_2024
+FROM spending_details
+WHERE YEAR(transaction_date) IN (2023, 2024)
+GROUP BY Month
+ORDER BY Month;
+```
+**Purpose:** Compare monthly spending side by side for 2023 and 2024.
+
+---
+
+## Tableau Dashboards 
+
+- **Category Analysis** : Spending distribution across categories like Shopping, Fitness, Housing, etc.
 - **Top Customers**: High-value customer behaviors and their impact.
 - **Relation**: Spending on fitness activities and healthcare costs.
 - **Recommendations**: Strategies to boost engagement and revenue.
@@ -86,26 +234,25 @@ Interactive dashboards reduce manual effort, enable data-driven decisions, and d
 
 ---
 
-## Insights and Recommendations 📜
+## Insights and Recommendations 
 
 ### Key Insights:
 - **Shopping** emerges as the dominant spending category, followed by Housing and Fitness.  
 - High-value items like cars contribute significantly to revenue, despite lower purchase frequency.  
 - Frequent purchases in categories like dining or personal hygiene suggest habitual spending behavior.
 - Fitness vs. Medical Costs:Importance of promoting fitness as a strategy for long-term health savings and 
-  highlight the potential for businesses to capitalize on this trend by encouraging preventive health measures.
-- Categories like subscriptions show low engagement but present opportunities for recurring revenue through   
-  strategic incentives like free trials or bundles.
-
+highlight the potential for businesses to capitalize on this trend by encouraging preventive health measures.
+- Categories like subscriptions show low engagement but present opportunities for recurring revenue through strategic incentives like free trials or bundles.
+  
 ### Recommendations:
 1. **High-Spending Categories:** Introduce loyalty programs with tiered rewards.  
-2. **Low-Engagement Categories:** Offer free trials, annual plan discounts, and referral incentives to drive adoption.  
+2. **Low-Engagement Categories to Increase Spending:** Offer free trials, annual plan discounts, and referral incentives to drive adoption.  
 3. **Retention Strategies:** Focus on high-value customers with personalized offers and exclusive benefits.
-4. **Opportunity for Combined Strategies:** Businesses can promote bundles such as gym memberships paired with discounted health check-ups or fitness equipment with free personal training sessions to encourage both fitness adoption and medical cost reduction.
+4. **Promote Bundled Offers:** Combine low-engagement categories with high-demand items to create appealing bundles.Highlight the value of bundled deals to drive spending across multiple categories.
 
- ### **Fitness and Medical Insights** and **Strategic Applications** 
+ ## **Fitness and Medical Insights** and **Strategic Applications** 
 
- **Fitness and Medical Insights**
+ ### **Fitness and Medical Insights**
 - **Preventive Health Benefits**: Customers investing in fitness activities, such as personal trainers, yoga classes, and gym memberships, tend to have lower healthcare expenses. This highlights the positive impact of preventive health measures.
 - **Spending Trends**:
   - **Workout Equipment** dominates fitness spending, reflecting a preference for high-value, one-time investments.
@@ -134,109 +281,20 @@ Interactive dashboards reduce manual effort, enable data-driven decisions, and d
 - The analysis provides actionable insights into customer behaviors, which can be leveraged for personalized marketing and strategy building.
 - Future improvements include seasonal trend analysis to identify spikes and shifts in consumer habits.
 
+### Future Plans for Personalized Marketing
+
+- Targeted Campaigns: Analyze spending patterns based on age, location, and income levels.
+- Seasonal Trends: Explore spikes in categories during holidays or special events.
+- Loyalty Programs: Develop tailored rewards for high-value customers and habitual buyers.
+
+ ## Key Learnings
+- Understanding consumer behavior drives long-term success.
+- Seasonal trends and preventive health spending offer new avenues for growth.
+- High-value customers are crucial for sustained revenue generation.
+   
+## Contact Information
+- Author: Mital Kasturiwale
 
 
-(
-### Setup Process
-  
-Step 1: Download file: <code>[db_dump.sql](https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/Databases/db_dump.sql)</code> or <code>[db_dump.xlsx](https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/Databases/db_dump.xlsx)</code>
-
-Step 2: Import it in MySql do ETL(Extract, Transform, Load) if required
-
-Step 3: Download [Tableau Public](https://www.tableau.com/products/public/download) (Free) or [Tableau Desktop](https://www.tableau.com/products/desktop/download) (14 days trial) to perform Data Analysis
-  
-Step 4: Connect Tableau with MySql database or Excel database
-  
-Step 5: Save the file as (.twb or .twbx)
-
-  
-## Data Analysis Using SQL
-  
-1. Show all customer records
-
-    `SELECT * FROM customers;`
-
-1. Show total number of customers
-
-    `SELECT count(*) FROM customers;`
-
-1. Show transactions for Chennai market (market code for chennai is Mark001)
-
-    `SELECT * FROM transactions where market_code='Mark001';`
-
-1. Show distrinct product codes that were sold in chennai.
-
-    `SELECT distinct product_code FROM transactions where market_code='Mark001';`
-
-1. Show transactions where currency is US dollars.
-
-    `SELECT * from transactions where currency="USD"`
-
-1. Show transactions in 2020 join by date table.
-
-    `SELECT transactions.*, date.* FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020;`
-
-1. Show total revenue in year 2020.
-
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and transactions.currency="INR\r" or transactions.currency="USD\r";`
-	
-1. Show total revenue in year 2020, January Month.
-
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020 and and date.month_name="January" and (transactions.currency="INR\r" or transactions.currency="USD\r");`
-
-1. Show total revenue in year 2020 in Chennai.
-
-    `SELECT SUM(transactions.sales_amount) FROM transactions INNER JOIN date ON transactions.order_date=date.date where date.year=2020and transactions.market_code="Mark001";`
 
 
-## Data Analysis Using Tableau 
-  
-### Tableau Public Dashboards: [Revenue & Profit Analysis](https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-RevenueAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link)  <a href="https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-RevenueAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/mrankitgupta/mrankitgupta/a768d6bf0a001f03327578ae12f8867e4056cbaf/tableau-software.svg" alt="tableau" width="40" height="20"/> </a>
-
-#### Creating Star Schema in Tableau
-	
-<p  align="center"><a href="https://public.tableau.com/app/profile/mrankitgupta"><img width="80%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Star%20Schema.png" /></a></p>
-
-#### Tableau Dashboard - [Revenue Analysis](https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-RevenueAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link)
-	
-<p  align="center"><a href="https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-RevenueAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Tableau%20Dashbpard%20Revenue%20Analysis.png" /></a></p>
-
-#### Tableau Dashboard - [Profit Analysis](https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-ProfitAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link)
-	
-<p  align="center"><a href="https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-ProfitAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Tableau%20Dashbpard%20Profit%20Analysis.png" /></a></p>
-  
-## Project References: 🔗
-
-|**Sr.No. 🔢**|**References 👨‍💻**| **Links :link:**|
-|------|--------------------|---------------------|
-|1| **Tableau Project Dashboard :** Sales Insights - Data Analysis using Tableau | [Dashboard](https://public.tableau.com/views/SalesInsights-DataAnalysisProject/Dashboard-RevenueAnalysis?:language=en-US&:display_count=n&:origin=viz_share_link)|
-|2| **Tableau Public Profile** | [Tableau Public Dashboard](https://public.tableau.com/app/profile/mrankitgupta) |
-|3| Tutorial | [YouTube 1](https://www.youtube.com/playlist?list=PLeo1K3hjS3utcb9nKtanhcn8jd2E0Hp9b) | 
-|4| MySQL installation | [YouTube 2](https://www.youtube.com/watch?v=WuBcTJnIuzo) |
-|5| OLTP & OLAP | [Geeks for Geeks](https://www.geeksforgeeks.org/difference-between-olap-and-oltp-in-dbms/) | 
-|6| Star Schema: Fact Table & Dimension Table | [Microsoft docs.](https://docs.microsoft.com/en-us/power-bi/guidance/star-schema) | 
-  
-## Related Projects:question: 👨‍💻 🛰️
-
-<code>[Spotify Data Analysis using Python](https://github.com/mrankitgupta/Spotify-Data-Analysis-using-Python)</code> 📊
-
-<code>[Statistics for Data Science using Python](https://github.com/mrankitgupta/Statistics-for-Data-Science-using-Python)</code> 📊
- 
-<code>[Python Lessons](https://github.com/mrankitgupta/PythonLessons)</code> 📑
-
-<code>[Python Libraries for Data Science](https://github.com/mrankitgupta/PythonLibraries)</code> 🗂️
-  
-  
-### Liked my Contributions:question:[Follow Me](https://github.com/mrankitgupta/):point_right: [Nominate Me for GitHub Stars](https://stars.github.com/nominate/) :star: :sparkles:
-
-## For any queries/doubts 🔗 👇 
-
-### [Ankit Gupta](https://bio.link/AnkitGupta)
-<p align="left"> <a href="https://twitter.com/MrAnkitGupta_/" target="blank"><img src="https://img.shields.io/twitter/follow/MrAnkitGupta_?logo=twitter&style=for-the-badge" alt="MrAnkitGupta_" /></a> </p>
-
-<a href="https://www.linkedin.com/in/mrankitgupta" target="blank"><img align="center" src="https://img.shields.io/badge/-MrAnkitGupta-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/mrankitgupta/" alt="MrAnkitGupta" height="20" width="100" /></a>
-<a href="https://www.instagram.com/MrAnkitGupta_" target="blank"><img align="center" src="https://img.shields.io/badge/-@MrAnkitGupta_-D7008A?style=flat-square&labelColor=D7008A&logo=Instagram&logoColor=white&link=https://www.instagram.com/MrAnkitGupta_" alt="MrAnkitGupta_" height="20" width="110" /></a>
-<a href="https://bio.link/AnkitGupta" target="blank"><img align="center" src="https://img.shields.io/badge/website-000000?style=for-the-badge&logo=About.me&logoColor=white&link=https://bio.link/AnkitGupta" alt="AnkitGupta" height="20" width="90" /></a>
-<a href="https://github.com/mrankitgupta/" target="blank"><img align="center" src="https://img.shields.io/github/followers/mrankitgupta?label=Follow&style=social&link=https://github.com/mrankitgupta/" alt="MrAnkitGupta" height="20" width="90" /></a>
-
-  
