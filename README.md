@@ -225,16 +225,20 @@ ORDER BY Month;
 
 ## Tableau Dashboards 
 
-- **Category Analysis** : Spending distribution across categories like Shopping, Fitness, Housing, etc.
-- **Top Customers**: High-value customer behaviors and their impact.
-- **Relation**: Spending on fitness activities and healthcare costs.
-- **Recommendations**: Strategies to boost engagement and revenue.
+- **Dashboard 1:** [Understanding consumer spending pattern across different categories and items](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-### [View Dashboard](https://public.tableau.com/views/your-dashboard-link-here) 🔗
+- <p  align="center"><a href="https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Tableau%20Dashbpard%20Revenue%20Analysis.png" /></a></p>
+
+- **Dashboard2:**[Is there a correlation between spending on fitness and healthcare costs?](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
+- <p  align="center"><a href="https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Tableau%20Dashbpard%20Revenue%20Analysis.png" /></a></p>
+
+### [View Dashboard](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) 🔗
 
 ---
 
-## Insights and Recommendations 
+## Insights and Recommendations
+
 
 ### Key Insights:
 - **Shopping** emerges as the dominant spending category, followed by Housing and Fitness.  
