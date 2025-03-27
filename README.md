@@ -15,7 +15,7 @@ This project aims to analyze consumer spending habits across various categories 
 2. [Project Scope and Dataset Overview](#project-scope-and-dataset-overview)
 3. [Project Planning](#project-planning)
 4. [Spending Analysis Using MySQL](#spending-analysis-using-mysql)
-5. [Tableau Dashboards](#tableau-dashboards)
+5. [Data Analysis Using Tableau ](#data-analysis-using-tableau)
 6. [Insights and Recommendations](#insights-and-recommendations)
 7. [Fitness and Medical Insights and Strategic Applications](#fitness-and-medical-insights-and-strategic-applications)
 8. [Summary and Future Scope](#summary-and-future-scope)
@@ -25,8 +25,7 @@ This project aims to analyze consumer spending habits across various categories 
 ---
 
 ## Project Scope and Dataset Overview
-- ### Data Source:
-- [Visit Kaggle Spending Habits Dataset](https://www.kaggle.com/datasets/ahmedmohamed2003/spending-habits)
+- ### Data Source: [Visit Kaggle Spending Habits Dataset](https://www.kaggle.com/datasets/ahmedmohamed2003/spending-habits)
 
 - ### Dataset Highlights:
   - 13 categories and 48 items
@@ -223,17 +222,17 @@ ORDER BY Month;
 
 ---
 
-## Tableau Dashboards 
+## Data Analysis Using Tableau 
+### Tableau Public Dashboards: [Consumer Spending Patterns](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) 🔗
+
 
 - **Dashboard 1:** [Understanding consumer spending pattern across different categories and items](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-- <p  align="center"><a href="https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Tableau%20Dashbpard%20Revenue%20Analysis.png" /></a></p>
+- <p  align="center"><a href="https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/MitalKasturiwale/DataAnalysis_Sql_Tableau/blob/main/Images/Spending_pattern_Dashboard1.png?raw=true" /></a></p>
 
 - **Dashboard2:**[Is there a correlation between spending on fitness and healthcare costs?](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
 
-- <p  align="center"><a href="https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/mrankitgupta/Sales-Insights-Data-Analysis-using-Tableau-and-SQL/blob/main/images/Tableau%20Dashbpard%20Revenue%20Analysis.png" /></a></p>
-
-### [View Dashboard](https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link) 🔗
+- <p  align="center"><a href="https://public.tableau.com/views/ConsumerSpendingPatterns-DataAnalysisusingTableauDashboard_project/Dashboard2?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"><img width="100%" src="https://github.com/MitalKasturiwale/DataAnalysis_Sql_Tableau/blob/main/Images/Spending_pattern_Dashboard2.png?raw=true" /></a></p>
 
 ---
 
@@ -297,7 +296,11 @@ highlight the potential for businesses to capitalize on this trend by encouragin
 - High-value customers are crucial for sustained revenue generation.
    
 ## Contact Information
-- Author: Mital Kasturiwale
+- **Author: Mital Kasturiwale**
+  
+### Liked my Contributions :Question: [Follow Me](https://github.com/MitalKasturiwale):Point_right: [Nominate Me for GitHub Stars](https://stars.github.com/nominate/) :star: :sparkles:
+
+
 
 
 
